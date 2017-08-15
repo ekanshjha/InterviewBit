@@ -1,0 +1,41 @@
+vector<int> Solution::spiralOrder(const vector<vector<int> > &A) {
+	vector<int> result;
+	int top=0; int bottom=A.size()-1; int left=0; int right=A[0].size()-1;
+	int dir=0;int index=0;
+	
+	while(top<=bottom && left<= right)
+	{
+	    if(dir==0)
+	    {
+	        for(int i=left;i<=right;i++)
+	        {result.push_back(A[top][i]);index++;}
+	        top++;
+	    }
+	    else if(dir==1)
+	    {
+	        for(int i=top;i<=bottom;i++)
+	        {result.push_back(A[i][right]);index++;}
+	        right--;
+	    }
+	    else if(dir==2)
+	    {
+	        for(int i=right;i>=left;i--)
+	        {result.push_back(A[bottom][i]);index++;}
+	        bottom--;
+	    }
+	    else if(dir==3)
+	    {
+	        for(int i=bottom ;i>=top;i--)
+	        {result.push_back(A[i][left]);index++;}
+	        left++;
+	    }
+	    dir=(dir+1)%4;
+	    
+	}
+	// DO STUFF HERE AND POPULATE result
+	return result;
+    // Do not write main() function.
+    // Do not read input, instead use the arguments to the function.
+    // Do not print the output, instead return values as specified
+    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
+}
